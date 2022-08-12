@@ -1,0 +1,443 @@
+$yellow: #eacf4f;
+$white: #fff;
+$black: #000;
+$light-color: #aaa;
+$border:.2rem solid rgba(255, 255, 255, 0.3);
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: $black;
+    padding: 3rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .icons{
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: $white;
+
+        &:hover{
+            color: $yellow;
+        }
+    }
+
+    #menu-btn{
+        display: none;
+    }
+
+    .navbar{
+        a{
+            color: $white;
+            font-size: 2rem;
+            margin: 0 2rem;
+            position: relative;
+
+            &::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: .3rem;
+                background-color: $yellow;
+                transition: .2s all ease;
+            }
+
+            &:hover{
+                color: $yellow;
+
+                &::after{
+                    width: 100%;
+                }
+            }
+        }
+
+        .space{
+            display: inline-block;
+            width: 16rem;
+        }
+    }
+
+    .logo{
+        position: absolute;
+        top: 3rem;
+        left: 48.5%;
+        transform: translateX(-50%);
+
+        img{
+            width: 15rem;
+        }
+    }
+
+    .search-form{
+        height: 7rem;
+        padding: 0 2rem;
+        border-top: $border;
+        display: flex;
+        align-items: center;
+        background: $black;
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+        &.active{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        input{
+            width: 100%;
+            text-transform: none;
+            background: none;
+            font-size: 1.6rem;
+            color: $white;
+        }
+    }
+
+    .fa-x{
+        transform: rotate(180deg);
+    }
+}
+
+.home{
+    margin-top: 7rem;
+    background: url(/images/home-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .content{
+        max-width: 70rem;
+        text-align: center;
+        margin: 0 auto;
+
+        img{
+            width: 100%;
+        }
+
+        h3{
+            @include titleText(4rem);
+        }
+
+        p{
+            @include graphText(1.7rem);
+            padding: 2rem 0;
+        }
+    }
+}
+
+.service{
+    @include grid(31rem);
+
+    .box{
+        text-align: center;
+        padding: 2rem;
+
+        i{
+            height: 7rem;
+            width: 7rem;
+            line-height: 7rem;
+            color: $black;
+            background-color: $yellow;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+        }
+
+        h3{
+            @include titleText(3rem);
+            padding: 1rem 0
+        }
+
+        p{
+            @include graphText(1.7rem);
+        }
+    }
+}
+
+.menu{
+    .box-container{
+        @include grid(33rem);
+
+        .box{
+            text-align: center;
+
+            &:hover{
+                img{
+                    transform: translateY(-1rem);
+                }
+            }
+
+            img{
+               height: 25rem; 
+            }
+
+            .content{
+                padding: 1rem 0;
+
+                .stars{
+                    margin-bottom: 2rem;
+
+                    i{
+                        font-size: 1.7rem;
+                        color: $yellow;
+                    }
+                }
+
+                h3{
+                    @include titleText(2rem);
+                }
+
+                .price{
+                    @include graphText(2rem);
+                }
+            }
+        }
+    }
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    .image{
+        flex: 1 1 40rem;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .content{
+        flex: 1 1 40rem;
+
+        .title{
+            @include titleText(2.5rem);
+        }
+
+        p{
+            @include graphText(1.7rem);
+            padding: 2rem 0;
+        }
+
+        .icons{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+
+            h3{
+                flex: 1 1 16rem;
+                @include titleText(2rem);
+
+                i{
+                    padding-right: .5rem;
+                    color: $yellow;
+                }
+            }
+        }
+    }
+}
+
+.reviews{
+    .box-container{
+        @include grid(31rem);
+
+        .box{
+            text-align: center;
+            padding: 2rem;
+
+            img{
+                height: 7rem;
+                width: 7rem;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+            }
+
+            h3{
+                @include titleText(2rem);
+            }
+
+            p{
+                @include graphText(1.7rem);
+            }
+
+            i{
+                font-size: 1.7rem;
+                color: $yellow;
+            }
+        }
+    }
+}
+
+.contact{
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        .map{
+            flex: 1 1 40rem;
+        }
+
+        .form{
+            flex: 1 1 40rem;
+
+            .icons-container{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                margin-bottom: 3rem;
+
+                .icons{
+                    flex: 1 1 17rem;
+                    text-align: center;
+
+                    i{
+                        height: 6rem;
+                        width: 6rem;
+                        line-height: 6rem;
+                        background: $yellow;
+                        color: $black;
+                        font-size: 2rem;
+                        margin-bottom: 1rem;
+                        border-radius: 50%;
+                    }
+
+                    h3{
+                        @include titleText(3rem);
+                        padding: 1rem 0;
+                    }
+
+                    p{
+                        @include graphText(1.7rem);
+                    }
+                }
+            }
+
+            form {
+                flex: 1 1 41rem;
+                // background: $black;
+                padding: 2rem;
+                text-align: center;
+    
+                h3 {
+                    @include titleText(2rem);
+                    padding-bottom: 1rem;
+                }
+    
+                .box {
+                    margin: .7rem 0;
+                    width: 100%;
+                    padding: 1rem 0;
+                    border-bottom: $border;
+                    font-size: 1.6rem;
+                    color: $light-color;
+                    background: transparent;
+    
+                    &:focus {
+                        padding: 1.2rem 1.4rem;
+                        border-color: $yellow;
+                        background-color: $white;
+                    }
+                }
+    
+                textarea {
+                    height: 15rem;
+                    resize: none;
+                }
+            }
+        }
+    }
+}
+
+.blogs{
+    .box-container{
+        @include grid(31rem);
+
+        .box{
+            position: relative;
+
+            .image{
+                height: 25rem;
+                overflow: hidden;
+                position: relative;
+
+                &:hover{
+                    transform: scale(1.1);
+
+                    .icons{
+                        transform: translateY(0);
+                    }
+                }
+
+                .icons{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 2rem;
+                    background-color: $black;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 90;
+                    transform: translateY(10rem);
+
+                    a{
+                        font-size: 1.5rem;
+                        color: $white;
+
+                        i{
+                            padding-right: .5rem;
+                            color: $yellow;
+                        }
+
+                        &:hover{
+                            color: $yellow;
+                        }
+                    }
+                }
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content{
+                text-align: center;
+                padding: 2rem;
+
+                h3{
+                    @include titleText(2rem);
+                }
+
+                p{
+                    @include graphText(1.7rem);
+                    padding: 1.5rem 0;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+
+    .links {
+        .btn {
+            margin: 1rem;
+        }
+    }
+}
